@@ -12,6 +12,9 @@ class Customer
     @drinks = {}
   end
 
+  def order()
+
+
   def tab
     # = [wine, beer, shot]
     drink_tab = self.drinks

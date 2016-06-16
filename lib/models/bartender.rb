@@ -1,28 +1,45 @@
 class Bartender
-  
   attr_accessor :name
-  attr_reader :customers, :drinks
+
 
   def initialize(name)
     @name = name
     Bar.bartenders << self
-    @revenue = 0;
-    @customers = []
   end
 
-  def total_transactions
+  def orders
+    Order.all.select do |order|
+      order.bartender == self
+    end
   end
 
-  def total_drinks
-
+  def drinks
+    self.orders.all.map do |order|
+      order.drink
+    end
   end
 
-  def total_customers
+  def revenue
+    price_array = self.drinks.each_with_object([]) do |drink, price_array|  
+      price_array << drink.price
+    end
+    price_array.reduce(:+)
+  end
+
+
+  # def total_transactions
+  # end
+
+  # def total_drinks
+
+  # end
+
+  # def total_customers
     
-  end
+  # end
   
-  def total_revenue
+  # def total_revenue
 
-  end
+  # end
 
 end
