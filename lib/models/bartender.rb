@@ -3,15 +3,14 @@ class Bartender
   attr_accessor :name
   attr_reader :customers, :drinks
 
-  @@bartenders = []
-
   def initialize(name)
     @name = name
-    @@bartenders << self 
+    Bar.bartenders << self
+    @revenue = 0;
+    @customers = []
   end
 
   def total_transactions
-
   end
 
   def total_drinks
