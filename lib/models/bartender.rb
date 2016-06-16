@@ -4,7 +4,6 @@ class Bartender
 
   def initialize(name)
     @name = name
-    Bar.bartenders << self
   end
 
   def orders
@@ -14,7 +13,7 @@ class Bartender
   end
 
   def drinks
-    self.orders.all.map do |order|
+    self.orders.map do |order|
       order.drink
     end
   end

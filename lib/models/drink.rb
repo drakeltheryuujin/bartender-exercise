@@ -1,7 +1,7 @@
 class Drink
 	attr_accessor :type, :price 
 
-	MENU = { "Wine" => 9, "Beer" => 6, "Shot" => 10}
+	#MENU = { "Wine" => 9, "Beer" => 6, "Shot" => 10}
 
 	@@drinks = []
 	#array of drink objects
@@ -12,13 +12,11 @@ class Drink
 		@@drinks << self
 	end
 
-	def self.menu
-		MENU
+	def self.all
+		@@drinks
 	end
 
-	def self.list
-		MENU.keys
-	end
+
 
 
 end
